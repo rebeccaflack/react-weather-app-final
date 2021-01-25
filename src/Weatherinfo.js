@@ -1,9 +1,10 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import TempConversion from "./TempConversion";
 
 export default function weatherInfo(props) {
   return (
-    <div className="WeatherInfo">
+    <span className="WeatherInfo">
       <h1 className="city">{props.data.city}</h1>
       <h5>Last updated:</h5>
       <p className="full-date">
@@ -12,21 +13,7 @@ export default function weatherInfo(props) {
       <h5>
         <span id="current-date"></span>
       </h5>
-      <h1 className="current-temperature">
-        <span id="current-temperature">
-          {" "}
-          {Math.round(props.data.temperature)}{" "}
-        </span>
-        <span className="units">
-          <a href="#" id="celsius-link" className="active" rel="noreferrer">
-            ˚C
-          </a>{" "}
-          |
-          <a href="#" id="farenheit-link" rel="noreferrer">
-            ˚F
-          </a>
-        </span>
-      </h1>
+      <TempConversion celsius={props.data.temperature} />
       <div className="row">
         <div className="col-6">
           <p>
@@ -59,6 +46,6 @@ export default function weatherInfo(props) {
           <p>This is my weather app</p>
         </div>
       </div>
-    </div>
+    </span>
   );
 }

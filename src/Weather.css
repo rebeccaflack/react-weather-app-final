@@ -15,11 +15,16 @@ div {
   border: 2px solid #2f3e46;
   border-radius: 10px;
   max-width: 400px;
-  text-align: center;
 }
+
+.city {
+  font-size: 50px;
+}
+
 .city,
 h1 {
   color: #2f3e46;
+  text-align: left;
 }
 h1,
 h4,
@@ -33,7 +38,7 @@ p {
   color: #52796f;
 }
 .city {
-  font-family: "Special Elite", cursive;
+  font-family: "Lobster", cursive;
 }
 
 .units {
@@ -43,7 +48,7 @@ p {
   left: -7px;
 }
 
-.units .active {
+.units {
   color: #2f3e46;
   text-decoration: none;
   cursor: default;
