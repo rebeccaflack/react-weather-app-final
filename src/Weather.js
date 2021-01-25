@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Loader from "react-loader-spinner";
 import "./Weather.css";
+import WeatherInfo from "./Weatherinfo";
 
-export default function Weather() {
-  const [ready, setReady] = useState(false);
+export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
     setWeatherData({
       ready: true,
       city: response.data.name,
-      updated: "Wednesday 07:00",
+      updated: new Date(response.data.dt * 1000),
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       iconURL: URL,
@@ -17,7 +18,6 @@ export default function Weather() {
       wind: response.data.wind.speed,
       precipitation: 12,
     });
-    setReady(true);
   }
   if (weatherData.ready) {
     return (
@@ -38,67 +38,23 @@ export default function Weather() {
             />
           </form>
           <br />
-          <h1 className="city">{weatherData.city}</h1>
-          <h5>Last updated: {weatherData.updated}</h5>
-          <h5>
-            <span id="current-date"></span>
-          </h5>
-          <h1 className="current-temperature">
-            <span id="current-temperature">
-              {" "}
-              {Math.round(weatherData.temperature)}{" "}
-            </span>
-            <span className="units">
-              <a href="#" id="celsius-link" className="active" rel="noreferrer">
-                ˚C
-              </a>{" "}
-              |
-              <a href="#" id="farenheit-link" rel="noreferrer">
-                ˚F
-              </a>
-            </span>
-          </h1>
-          <div className="row">
-            <div className="col-6">
-              <p>
-                <span id="weather-description" className="text-capitalize">
-                  {weatherData.description}
-                </span>
-                <br />
-                <br />
-                <strong>Wind:</strong>{" "}
-                <span id="wind"> {weatherData.wind} </span> km/h
-                <br />
-                <strong>Humidity:</strong>{" "}
-                <span id="humidity">{weatherData.humidity}</span>%
-                <br />
-                <strong>Precipitation:</strong>{" "}
-                <span id="precipitation">{weatherData.humidity}</span>%
-              </p>
-            </div>
-            <div className="col-6 center-block text-center">
-              <img
-                src={weatherData.iconURL}
-                className="current-weather-icon"
-                id="icon"
-                alt={weatherData.description}
-              />
-            </div>
-          </div>
-          <div className="card text-center quote">
-            <div className="card-body">
-              <p>This is my weather app</p>
-            </div>
-          </div>
+          <WeatherInfo data={weatherData} />
         </div>
       </div>
     );
   } else {
-    const apiKey = `6e3c1137a7cfd59830f8913846cba599`;
-    let city = "Toronto";
-    let apiURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    const apiKey = "6e3c1137a7cfd59830f8913846cba599";
+    let apiURL = `http://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(apiURL).then(handleResponse);
 
-    return "Loading...";
+    return (
+      <Loader
+        type="Rings"
+        color="#2f3e46"
+        height={100}
+        width={100}
+        timeout={3000} //3 secs
+      />
+    );
   }
 }
