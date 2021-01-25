@@ -3,6 +3,7 @@ import axios from "axios";
 import Loader from "react-loader-spinner";
 import "./Weather.css";
 import WeatherInfo from "./WeatherInfo";
+import Forecast from "./Forecast";
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -14,7 +15,7 @@ export default function Weather(props) {
       updated: new Date(response.data.dt * 1000),
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
-      iconURL: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      iconURL: response.data.weather[0].icon,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       precipitation: 12,
@@ -57,6 +58,9 @@ export default function Weather(props) {
           </form>
           <br />
           <WeatherInfo data={weatherData} />
+          <hr />
+          <h2>15hr Forecast</h2>
+          <Forecast city={weatherData.city} />
         </div>
       </div>
     );

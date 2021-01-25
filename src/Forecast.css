@@ -1,0 +1,15 @@
+.Forecast img {
+  display: block;
+  text-align: center;
+  position: relative;
+  right: 10px;
+}
+
+.Forecast .card {
+  border: 2px solid #2f3e46;
+  border-radius: 10px;
+  margin: 10px auto;
+  max-width: 150px;
+  max-height: 175px;
+  display: block;
+}

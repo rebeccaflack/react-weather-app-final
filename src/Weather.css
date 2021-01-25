@@ -10,13 +10,6 @@ div {
   padding: 16px;
 }
 
-.card .quote {
-  background: #fff;
-  border: 2px solid #2f3e46;
-  border-radius: 10px;
-  max-width: 400px;
-}
-
 .city {
   font-size: 50px;
 }
@@ -32,6 +25,12 @@ h5,
 p {
   font-family: "El Messiri", sans-serif;
 }
+
+h2 {
+  color: #2f3e46;
+  font-family: "Lobster", cursive;
+}
+
 h4,
 h5,
 p {
@@ -52,10 +51,6 @@ p {
   color: #2f3e46;
   text-decoration: none;
   cursor: default;
-}
-
-.quote {
-  text-align: center;
 }
 
 .current-weather-icon {
