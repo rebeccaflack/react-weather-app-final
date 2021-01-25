@@ -1,0 +1,58 @@
+div {
+  margin: 0 auto;
+}
+
+.Weather-body {
+  background: #cad2c5;
+  border: 2px solid #2f3e46;
+  border-radius: 10px;
+  max-width: 600px;
+  padding: 16px;
+}
+
+.card .quote {
+  background: #fff;
+  border: 2px solid #2f3e46;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+}
+.city,
+h1 {
+  color: #2f3e46;
+}
+h1,
+h4,
+h5,
+p {
+  font-family: "El Messiri", sans-serif;
+}
+h4,
+h5,
+p {
+  color: #52796f;
+}
+.city {
+  font-family: "Special Elite", cursive;
+}
+
+.units {
+  font-size: medium;
+  position: relative;
+  top: -18px;
+  left: -7px;
+}
+
+.units .active {
+  color: #2f3e46;
+  text-decoration: none;
+  cursor: default;
+}
+
+.quote {
+  text-align: center;
+}
+
+.current-weather-icon {
+  position: relative;
+}
