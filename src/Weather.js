@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Loader from "react-loader-spinner";
 import "./Weather.css";
-import WeatherInfo from "./Weatherinfo";
+import Weatherinfo from "./Weatherinfo";
 import Forecast from "./Forecast";
 
 export default function Weather(props) {
@@ -52,7 +52,7 @@ export default function Weather(props) {
             <input type="submit" value="Search" id="search" />
           </form>
           <br />
-          <WeatherInfo data={weatherData} />
+          <Weatherinfo data={weatherData} />
           <hr />
           <h2>15hr Forecast</h2>
           <Forecast city={weatherData.city} />
