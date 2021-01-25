@@ -56,3 +56,7 @@ p {
 .current-weather-icon {
   position: relative;
 }
+
+.loader {
+  text-align: center;
+}

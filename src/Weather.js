@@ -67,7 +67,8 @@ export default function Weather(props) {
         color="#2f3e46"
         height={100}
         width={100}
-        timeout={3000} //3 secs
+        timeout={10000} //10 secs
+        className="loader"
       />
     );
   }
