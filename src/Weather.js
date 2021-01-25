@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Loader from "react-loader-spinner";
 import "./Weather.css";
-import WeatherInfo from "./WeatherInfo";
+import WeatherInfo from "./Weatherinfo";
 import Forecast from "./Forecast";
 
 export default function Weather(props) {
